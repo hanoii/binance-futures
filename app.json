@@ -1,7 +1,7 @@
 {
-  "name": "Start on Heroku: Python",
-  "description": "A barebones Python app, which can easily be deployed to Heroku.",
-  "repository": "https://github.com/heroku/python-getting-started",
+  "name": "Futures dashboards and alerts",
+  "description": "Simple quick dashboard and action on webhooks.",
+  "repository": "https://github.com/hanoii/binance-futures",
   "keywords": ["python", "django", "binance", "futures"],
   "env": {
     "SECRET_KEY": {
