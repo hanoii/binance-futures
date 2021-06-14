@@ -2,3 +2,5 @@ django
 gunicorn
 django-heroku
 django-basicauth
+django-environ
+git+https://github.com/Binance-docs/Binance_Futures_python.git

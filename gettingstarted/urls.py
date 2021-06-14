@@ -12,5 +12,5 @@ import hello.views
 
 urlpatterns = [
     path("", hello.views.index, name="index"),
-    path("alert/", hello.views.alert, name="alert"),
+    path("stop", hello.views.stop, name="stop"),
 ]
