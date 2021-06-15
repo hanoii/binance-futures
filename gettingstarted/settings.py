@@ -82,4 +82,4 @@ STATIC_URL = "/static/"
 BASICAUTH_REALM='Locked in'
 BASICAUTH_USERS={os.environ.get('ACCESS_USER_NAME'): os.environ.get('ACCESS_USER_PASSWORD')}
 
-django_heroku.settings(locals())
+django_heroku.settings(locals(), databases=False)
