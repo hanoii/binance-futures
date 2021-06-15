@@ -1,6 +1,6 @@
 {
   "name": "Futures dashboards and alerts",
-  "description": "Simple quick dashboard and action on webhooks.",
+  "description": "Simple dashboard and action on webhooks.",
   "repository": "https://github.com/hanoii/binance-futures",
   "keywords": ["python", "django", "binance", "futures"],
   "env": {
