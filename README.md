@@ -6,7 +6,7 @@ For now it only supports Binance USD-M Futures, and I only tested with [one way 
 
 ## Use it at your own risk!
 
-I did this for myself, as I rather sleep and not wake up with an alert stop out of a position. As with every automatic approach, it has the potentital to fail and your position might not be closed, so **test it and use it at your own risk.**
+I did this for myself, as I rather sleep and not wake up with an alert to stop out of a position. As with every automatic approach, it has the potentital to fail and your position might not be closed, so **test it and use it at your own risk.**
 
 Things that can potentially fail:
 
@@ -33,8 +33,12 @@ It will also ask for your Binance API Keys, enter the ones you got on step #1.
 
 ### #3 Test it out
 
-That's pretty much it. If all worked, you should be able to the url that Heroku gave you, enter your credentials and you should see your open poisitions as well as the URL you have to use on TradingView and payload (message format) examples to enter it.
+That's pretty much it. If all worked, you should be able to open the web app you just deployed from Heroku, enter your credentials and you should see your open poisitions as well as the URL you have to use on TradingView and payload (message format) examples.
 
 ## Usage
 
 Besides accesing the dashboard where there's not a lot, you can use it to gather the webhook URL as well as look at some examples. This might evolve over time.
+
+## Update
+
+I might be pushing changes from time to time, you can destroy your Heroku instance and recreate it again, that will pull in any new changes.
