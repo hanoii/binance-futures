@@ -40,7 +40,9 @@ That's pretty much it. If all worked, you should be able to open the web app you
 
 Besides accesing the dashboard where there's not a lot, you can use it to gather the webhook URL as well as look at some examples. This might evolve over time.
 
-![TradingView Example](docs/images/tvexample.png)
+<p align="center">
+  <img width="400" src="https://raw.githubusercontent.com/hanoii/binance-futures/main/docs/images/tvexample.png">
+</p>
 
 ## Binance Tesnet
 
