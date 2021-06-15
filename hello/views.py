@@ -5,7 +5,9 @@ import traceback
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import JsonResponse
+from django.http import HttpResponseForbidden
 from django.views.decorators.http import require_http_methods
+from basicauth.decorators import basic_auth_required
 from binance_f import RequestClient
 from binance_f.constant.test import *
 from binance_f.base.printobject import *
@@ -20,6 +22,7 @@ def binance_request_client():
 
 
 # Create your views here.
+@basic_auth_required
 def index(request):
     # return HttpResponse('Hello from Python!')
     request_client = binance_request_client()
@@ -45,7 +48,7 @@ def index(request):
 
             positions.append(row)
 
-    context = {'positions': positions}
+    context = {'positions': positions, 'baseurl': request.build_absolute_uri(), 'username': os.environ.get('ACCESS_USER_NAME'), 'password': os.environ.get('ACCESS_USER_PASSWORD')}
     return render(request, "index.html", context)
 
 
@@ -53,6 +56,9 @@ def index(request):
 def stop(request):
     response = {}
     try:
+        if request.GET['u'] != os.environ.get('ACCESS_USER_NAME') or request.GET['p'] != os.environ.get('ACCESS_USER_PASSWORD'):
+            return HttpResponseForbidden()
+
         quantity = 0
         payload = json.loads(request.body.decode("utf-8"))
 
