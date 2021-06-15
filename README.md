@@ -22,7 +22,7 @@ Things that can potentially fail:
 
  You will need to [create a set of API keys on binance](https://www.binance.com/en/support/faq/360002502072). It will ask you to give the API Key permissions, please check `Enable reading` and `Enable Futures`. This will get you an `API KEY` and an `API SECRET`. Note those down in some secure way, treat them like passwords. You will use this in the next step.
 
-### #2 Deploy to heroku
+### #2 Deploy to Heroku
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/hanoii/binance-futures)
 
@@ -48,7 +48,7 @@ Besides accesing the dashboard where there's not a lot, you can use it to gather
 
 This can be tested against [binance futures' testnet](https://testnet.binancefuture.com/). You need to register a new account there and a [differet set of API keys](https://dev.binance.vision/t/binance-testnet-environments/99).
 
-You also will have to add a new [Confinguration variable on Heroku](https://devcenter.heroku.com/articles/config-vars) `BINANCE_TESTNET` with value `true` for it to work
+You also will have to add a new [configuration variable on Heroku](https://devcenter.heroku.com/articles/config-vars) `BINANCE_TESTNET` with value `true` for it to work
 
 ## Update
 
