@@ -80,6 +80,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = "/static/"
 
 BASICAUTH_REALM='Locked in'
-BASICAUTH_USERS={os.environ.get('USERNAME'): os.environ.get('PASSWORD')}
+BASICAUTH_USERS={os.environ.get('ACCESS_USER_NAME'): os.environ.get('ACCESS_USER_PASSWORD')}
 
 django_heroku.settings(locals())

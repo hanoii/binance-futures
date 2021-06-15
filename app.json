@@ -8,11 +8,11 @@
       "description": "The secret key for the Django application.",
       "generator": "secret"
     },
-    "USERNAME": {
+    "ACCESS_USER_NAME": {
       "description": "Username to access the app.",
       "required": true
     },
-    "PASSWORD": {
+    "ACCESS_USER_PASSWORD": {
       "description": "Password to access the app.",
       "required": true
     },
