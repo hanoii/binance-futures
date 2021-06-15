@@ -24,7 +24,18 @@ def index(request):
     # return HttpResponse('Hello from Python!')
     request_client = binance_request_client()
     result = request_client.get_account_information_v2()
-    context = {'binance': result}
+    positions = []
+    for position in result.positions:
+        if position.entryPrice:
+            row = {}
+            row['symbol'] = position.symbol
+            row['entryPrice'] = position.entryPrice
+            row['unrealizedProfit'] = position.unrealizedProfit
+            #price = request_client.get_mark_price(position.symbol)
+            #row['markPrice'] = price.markPrice
+            positions.append(row)
+
+    context = {'positions': positions}
     return render(request, "index.html", context)
 
 

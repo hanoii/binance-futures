@@ -1,18 +1,38 @@
 {% extends "base.html" %}
 {% load static %}
+{% load humanize %}
 
 {% block content %}
 
 <div class="container">
-  {% for item in binance.positions %}
-    {% if item.entryPrice %}
-      <div class="row">
-        <div class="col-md-12">
-          {{ item.symbol }} - {{ item.entryPrice }} - {{ item.unrealizedProfit }}
-        </div>
-      </div>
-    {% endif %}
+<table class="table table-dark table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Symbol</th>
+      <th scope="col" class="text-end">Entry Price</th>
+      <th scope="col" class="text-end">Unrealized Profit</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for item in positions %}
+    <tr>
+      <th scope="row">{{ item.symbol }}</th>
+      <td class="text-end">${{ item.entryPrice|intcomma }}</td>
+      <td class="text-end">${{ item.unrealizedProfit|floatformat:2|intcomma }}</td>
+    </tr>
   {% endfor %}
+  </tbody>
+</table>
 </div>
-
+<div class="container">
+  <h3 class="mt-5">Stop webhook alert</h3>
+  <div class="border border-white rounded p-2 mt-4 user-select-all">https://google.com</div>
+  <h3 class="mt-5">Alert message examples</h3>
+  <div class="border border-white rounded p-2 mt-4 user-select-all font-monospace">{"symbol": "BTCUSDT", "operation": "sell"}</div>
+  <p>Close a LONG position</p>
+  <div class="border border-white rounded p-2 mt-4 user-select-all font-monospace">{"symbol": "BTCUSDT", "operation": "buy"}</div>
+  <p>Close a SHORT position</p>
+  <div class="border border-white rounded p-2 mt-4 user-select-all font-monospace">{"symbol": "BTCUSDT", "operation": "sell", "quantity": 10}</div>
+  <p>With optional quantity, otherwise the full position will be closed</p>
+</div>
 {% endblock %}
