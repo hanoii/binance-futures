@@ -1,45 +1,40 @@
-# Python: Getting Started
+# Features dashboard / Binance futures auto-closing
 
-A barebones Django app, which can easily be deployed to Heroku.
+For now, this is just a small utility that allows me to set a TradingView alert's webhook on a candle close and have this handle the closing of that position.
 
-This application supports the [Getting Started with Python on Heroku](https://devcenter.heroku.com/articles/getting-started-with-python) article - check it out.
+For now it only supports Binance USD-M Futures, and I only tested with [one way mode](https://www.binance.com/en/support/faq/360041513552).
 
-## Running Locally
+## Use it at your own risk!
 
-Make sure you have Python 3.9 [installed locally](https://docs.python-guide.org/starting/installation/). To push to Heroku, you'll need to install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli), as well as [Postgres](https://devcenter.heroku.com/articles/heroku-postgresql#local-setup).
+I did this for myself, as I rather sleep and not wake up with an alert stop out of a position. As with every automatic approach, it has the potentital to fail and your position might not be closed, so **test it and use it at your own risk.**
 
-```sh
-$ git clone https://github.com/heroku/python-getting-started.git
-$ cd python-getting-started
+Things that can potentially fail:
 
-$ python3 -m venv getting-started
-$ pip install -r requirements.txt
+- I made a mistake in the code and it failed.
+- You made a mistake in the payload message and/or the URL and it failed.
+- There was a network issue between TrandingView and Heroku and it failed.
+- The IP you got on your dyno (heroku instance) might have been previously went over their [limits](https://www.binance.com/en/support/faq/360004492232). It's **VERY** unlikely, but noting it.
 
-$ createdb python_getting_started
+## Setting it up
 
-$ python manage.py migrate
-$ python manage.py collectstatic
+### #1 Binance API Keys
 
-$ heroku local
-```
+ You will need to [create a set of API keys on binance](https://www.binance.com/en/support/faq/360002502072). It will ask you to give the API Key permissions, please check `Enable reading` and `Enable Futures`. This will get you an `API KEY` and an `API SECRET`. Note those down in some secure way, treat them like passwords. You will use this in the next step.
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
+### #2 Deploy to heroku
 
-## Deploying to Heroku
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/hanoii/binance-futures).
 
-```sh
-$ heroku create
-$ git push heroku main
+You will have to sign up to Heroku first. It gives you 550 hours for free or 1000 if you add a creditcard. Because this app will be used seldomly (when you access it or when the alert accesses it) you'll hardly ever need more than that.
 
-$ heroku run python manage.py migrate
-$ heroku open
-```
-or
+This will ask for a username and password, enter some credentials of your choice. This will be used both to access the dashboard as well as for the webhook.
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+It will also ask for your Binance API Keys, enter the ones you got on step #1.
 
-## Documentation
+### #3 Test it out
 
-For more information about using Python on Heroku, see these Dev Center articles:
+That's pretty much it. If all worked, you should be able to the url that Heroku gave you, enter your credentials and you should see your open poisitions as well as the URL you have to use on TradingView and payload (message format) examples to enter it.
 
-- [Python on Heroku](https://devcenter.heroku.com/categories/python)
+## Usage
+
+Besides accesing the dashboard where there's not a lot, you can use it to gather the webhook URL as well as look at some examples. This might evolve over time.
