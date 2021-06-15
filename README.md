@@ -1,4 +1,4 @@
-# Features dashboard / Binance futures auto-closing
+# Features dashboard / Binance futures close on webhook
 
 For now, this is just a small utility that allows me to set a [TradingView](https://www.tradingview.com/) alert's webhook on a candle close and have this handle the closing of that position.
 
@@ -13,14 +13,14 @@ Things that can potentially fail:
 - I made a mistake in the code and it failed.
 - You made a mistake in the payload message and/or the URL and it failed.
 - There was a network issue between TrandingView and Heroku and it failed.
-- The IP you got on your dyno (heroku instance) might have been previously gone over their [limits](https://www.binance.com/en/support/faq/360004492232). It's **VERY, VERY** unlikely, but noting it.
+- The IP you got on your dyno (heroku instance) might have been previously gone over Binance [limits](https://www.binance.com/en/support/faq/360004492232). It's **VERY, VERY** unlikely, but noting it.
 - Make sure to remove the alert, because the webhook will continue to close the symbol if you open it again.
 
 ## Setting it up
 
 ### #1 Binance API Keys
 
- You will need to [create a set of API keys on binance](https://www.binance.com/en/support/faq/360002502072). It will ask you to give the API Key permissions, please check `Enable reading` and `Enable Futures`. This will get you an `API KEY` and an `API SECRET`. Note those down in some secure way, treat them like passwords. You will use this in the next step.
+ You will need to [create a set of API keys on Binance](https://www.binance.com/en/support/faq/360002502072). It will ask you to give the API Key permissions, please check `Enable reading` and `Enable Futures`. This will get you an `API KEY` and an `API SECRET`. Note those down in some secure way, treat them like passwords. You will use this in the next step.
 
 ### #2 Deploy to Heroku
 
@@ -46,7 +46,7 @@ Besides accesing the dashboard where there's not a lot, you can use it to gather
 
 ## Binance Tesnet
 
-This can be tested against [binance futures' testnet](https://testnet.binancefuture.com/). You need to register a new account there and a [differet set of API keys](https://dev.binance.vision/t/binance-testnet-environments/99).
+This can be tested against [Binance futures' testnet](https://testnet.binancefuture.com/). You need to register a new account there and a [differet set of API keys](https://dev.binance.vision/t/binance-testnet-environments/99).
 
 You also will have to add a new [configuration variable on Heroku](https://devcenter.heroku.com/articles/config-vars) `BINANCE_TESTNET` with value `true` for it to work
 
