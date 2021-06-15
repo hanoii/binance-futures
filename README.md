@@ -14,6 +14,7 @@ Things that can potentially fail:
 - You made a mistake in the payload message and/or the URL and it failed.
 - There was a network issue between TrandingView and Heroku and it failed.
 - The IP you got on your dyno (heroku instance) might have been previously went over their [limits](https://www.binance.com/en/support/faq/360004492232). It's **VERY** unlikely, but noting it.
+- Make sure to remove the alert, because the webhook will continue to close the symbol if you open it again.
 
 ## Setting it up
 
