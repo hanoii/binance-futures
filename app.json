@@ -10,19 +10,19 @@
     },
     "USERNAME": {
       "description": "Username to access the app.",
-      "required": true,
+      "required": true
     },
     "PASSWORD": {
       "description": "Password to access the app.",
-      "required": true,
+      "required": true
     },
     "BINANCE_API_KEY": {
       "description": "Binance API KEY, with futures enabled.",
-      "required": true,
+      "required": true
     },
     "BINANCE_API_SECRET": {
       "description": "Binance API SECRET, with futures enabled.",
-      "required": true,
+      "required": true
     }
   },
   "environments": {
