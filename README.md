@@ -48,6 +48,8 @@ Besides accesing the dashboard where there's not a lot, you can use it to gather
 
 This can be tested against [binance future's testnet](https://testnet.binancefuture.com/). You need to register a new account there and a [differet set of API keys](https://dev.binance.vision/t/binance-testnet-environments/99).
 
+You also will have to add a new [Confinguration variable on Heroku](https://devcenter.heroku.com/articles/config-vars) `BINANCE_TESTNET` with value `true` for it to work
+
 ## Update
 
 I might be pushing changes from time to time, you can destroy your Heroku instance and recreate it again, that will pull in any new changes.
