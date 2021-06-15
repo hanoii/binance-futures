@@ -3,7 +3,7 @@
   "description": "Simple dashboard and action on webhooks.",
   "repository": "https://github.com/hanoii/binance-futures",
   "keywords": ["python", "django", "binance", "futures"],
-  "addons": [],
+  "addons": [ "heroku-postgresql" ],
   "env": {
     "SECRET_KEY": {
       "description": "The secret key for the Django application.",

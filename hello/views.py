@@ -23,16 +23,26 @@ def binance_request_client():
 def index(request):
     # return HttpResponse('Hello from Python!')
     request_client = binance_request_client()
-    result = request_client.get_account_information_v2()
+    result = request_client.get_position_v2()
     positions = []
-    for position in result.positions:
+    for position in result:
         if position.entryPrice:
             row = {}
             row['symbol'] = position.symbol
             row['entryPrice'] = position.entryPrice
             row['unrealizedProfit'] = position.unrealizedProfit
-            #price = request_client.get_mark_price(position.symbol)
-            #row['markPrice'] = price.markPrice
+            row['positionAmt'] = position.positionAmt
+            row['markPrice'] = position.markPrice
+            row['side'] = '-'
+            if row['markPrice'] - row['entryPrice'] > 0 and row['unrealizedProfit'] > 0:
+                row['side'] = 'LONG'
+            if row['markPrice'] - row['entryPrice'] < 0 and row['unrealizedProfit'] > 0:
+                row['side'] = 'SHORT'
+            if row['markPrice'] - row['entryPrice'] > 0 and row['unrealizedProfit'] < 0:
+                row['side'] = 'SHORT'
+            if row['markPrice'] - row['entryPrice'] < 0 and row['unrealizedProfit'] < 0:
+                row['side'] = 'LONG'
+
             positions.append(row)
 
     context = {'positions': positions}

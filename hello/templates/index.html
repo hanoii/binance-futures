@@ -8,23 +8,29 @@
 <table class="table table-dark table-striped">
   <thead>
     <tr>
+      <th scope="col">Side</th>
       <th scope="col">Symbol</th>
+      <th scope="col" class="text-end">Position</th>
       <th scope="col" class="text-end">Entry Price</th>
+      <th scope="col" class="text-end">Mark Price</th>
       <th scope="col" class="text-end">Unrealized Profit</th>
     </tr>
   </thead>
   <tbody>
   {% for item in positions %}
     <tr>
+      <td>{{ item.side }}</td>
       <th scope="row">{{ item.symbol }}</th>
+      <td class="text-end">{{ item.positionAmt }}</td>
       <td class="text-end">${{ item.entryPrice|intcomma }}</td>
+      <td class="text-end">${{ item.markPrice|intcomma }}</td>
       <td class="text-end">${{ item.unrealizedProfit|floatformat:2|intcomma }}</td>
     </tr>
   {% endfor %}
   </tbody>
 </table>
 </div>
-<div class="container">
+<div class="container w-75">
   <h3 class="mt-5">Stop webhook alert</h3>
   <div class="border border-white rounded p-2 mt-4 user-select-all">https://google.com</div>
   <h3 class="mt-5">Alert message examples</h3>

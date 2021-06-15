@@ -73,6 +73,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "gettingstarted.wsgi.application"
 
+# Database
+# https://docs.djangoproject.com/en/2.0/ref/settings/#databases
+
+DATABASES = {
+    "default": {
+        "ENGINE" : "django.db.backends.sqlite3",
+        "NAME": os.path.join(BASE_DIR, "db.sqlite3")
+    }
+}
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
@@ -82,4 +92,4 @@ STATIC_URL = "/static/"
 BASICAUTH_REALM='Locked in'
 BASICAUTH_USERS={os.environ.get('ACCESS_USER_NAME'): os.environ.get('ACCESS_USER_PASSWORD')}
 
-django_heroku.settings(locals(), databases=False)
+django_heroku.settings(locals())
