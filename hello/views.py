@@ -81,11 +81,17 @@ def stop(request):
 
         if quantity > 0:
             quantity = ("{:." + str(precision) + "f}").format(quantity)
+            if payload['operation'] == 'sell':
+                side = OrderSide.SELL
+            else:
+                side = OrderSide.BUY
             order = {
                 'symbol': payload['symbol'],
                 'ordertype': OrderType.MARKET,
                 'quantity': quantity,
-                'side': OrderSide.SELL
+                'side': side,
+                # prevent going over the order, although we shouldn't really
+                'reduceOnly': True,
             }
             response['order'] = order
             result = request_client.post_order(**order)
