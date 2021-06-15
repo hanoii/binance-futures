@@ -1,6 +1,6 @@
 # Features dashboard / Binance futures auto-closing
 
-For now, this is just a small utility that allows me to set a TradingView alert's webhook on a candle close and have this handle the closing of that position.
+For now, this is just a small utility that allows me to set a [TradingView](https://www.tradingview.com/) alert's webhook on a candle close and have this handle the closing of that position.
 
 For now it only supports Binance USD-M Futures, and I only tested with [one way mode](https://www.binance.com/en/support/faq/360041513552).
 
@@ -13,7 +13,7 @@ Things that can potentially fail:
 - I made a mistake in the code and it failed.
 - You made a mistake in the payload message and/or the URL and it failed.
 - There was a network issue between TrandingView and Heroku and it failed.
-- The IP you got on your dyno (heroku instance) might have been previously went over their [limits](https://www.binance.com/en/support/faq/360004492232). It's **VERY** unlikely, but noting it.
+- The IP you got on your dyno (heroku instance) might have been previously gone over their [limits](https://www.binance.com/en/support/faq/360004492232). It's **VERY, VERY** unlikely, but noting it.
 - Make sure to remove the alert, because the webhook will continue to close the symbol if you open it again.
 
 ## Setting it up
@@ -39,6 +39,12 @@ That's pretty much it. If all worked, you should be able to open the web app you
 ## Usage
 
 Besides accesing the dashboard where there's not a lot, you can use it to gather the webhook URL as well as look at some examples. This might evolve over time.
+
+![TradingView Example](docs/images/tvexample.png)
+
+## Binance Tesnet
+
+This can be tested against [binance future's testnet](https://testnet.binancefuture.com/). You need to register a new account there and a [differet set of API keys](https://dev.binance.vision/t/binance-testnet-environments/99).
 
 ## Update
 
