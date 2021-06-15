@@ -23,7 +23,7 @@ Things that can potentially fail:
 
 ### #2 Deploy to heroku
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/hanoii/binance-futures).
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/hanoii/binance-futures)
 
 You will have to sign up to Heroku first. It gives you 550 hours for free or 1000 if you add a creditcard. Because this app will be used seldomly (when you access it or when the alert accesses it) you'll hardly ever need more than that.
 
